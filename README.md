@@ -52,6 +52,77 @@ For end-to-end (e2e) testing, run:
 ng e2e
 ```
 
+
+---
+
+### ✅ **Frontend - `valuenest-frontend` (Angular)**
+
+```markdown
+# ValueNest Frontend
+
+This is the Angular frontend for **ValueNest**, an online shopping platform. It connects with the Spring Boot backend to offer a smooth user experience for browsing and purchasing products.
+
+## 🌐 Deployed URL
+
+http://13.127.72.112:4200
+
+
+## 🚀 Tech Stack
+
+- Angular 17+
+- TypeScript
+- HTML / CSS
+- Bootstrap / Angular Material (if used)
+- Docker (nginx-based deployment)
+
+## 📁 Project Structure
+
+src/
+├── app/
+│ ├── components/
+│ │ ├── login/
+│ │ ├── register/
+│ │ ├── products/
+│ ├── services/
+│ ├── models/
+│ └── app.module.ts
+├── assets/
+├── environments/
+├── index.html
+└── main.ts
+
+
+## 🔐 Features
+
+- User Registration and Login (via username or phone)
+- Product listing
+- Secure API integration with Spring Boot backend
+- Responsive UI
+
+## 🐳 Docker Deployment
+
+Build the Angular app and serve with nginx:
+
+```bash
+ng build --configuration production
+docker build -t valuenest-frontend .
+docker run -p 4200:80 valuenest-frontend
+Make sure the Dockerfile copies the /dist/valuenest-frontend directory into nginx /usr/share/nginx/html.
+
+🔗 Backend API Endpoint
+All HTTP requests are made to:
+
+http://13.127.72.112:8282/api/
+
+Make sure CORS is enabled in the backend for Angular access.
+
+📫 Contact
+Raise an issue or contact the developer for feature requests or bug reports.
+
+
+
+
+
 Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
 
 ## Additional Resources
