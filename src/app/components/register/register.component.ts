@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms'; // ✅ Import FormsModule
-import { CommonModule } from '@angular/common'; // Optional if using *ngIf etc.
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-register',
-  standalone: true, // ✅ Mark as standalone
-  imports: [CommonModule, FormsModule], // ✅ Import FormsModule here
+  standalone: true,
+  imports: [CommonModule, FormsModule],
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
@@ -17,7 +18,7 @@ export class RegisterComponent {
     password: ''
   };
 
-  constructor(private authService: any) {}
+  constructor(private authService: AuthService) {}  // ✅ Correct type
 
   onRegister() {
     this.authService.register(this.registerData).subscribe({
