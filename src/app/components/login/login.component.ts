@@ -1,16 +1,15 @@
 // src/app/components/login/login.component.ts
 
 import { Component } from '@angular/core';
-import { AuthService } from 'src/app/services/auth.service';
+import { AuthService } from '../../services/auth.service';  // ✅ Use relative import
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']  // ✅ Note: Use `styleUrls` (plural)
+  styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
 
-  // Object to hold login form input
   loginData = {
     usernameOrPhone: '',
     password: ''
@@ -20,11 +19,11 @@ export class LoginComponent {
 
   onLogin() {
     this.authService.login(this.loginData).subscribe({
-      next: (response) => {
+      next: (response: any) => {
         console.log('Login successful', response);
-        // You can redirect user or store token here
+        // Redirect or store token
       },
-      error: (error) => {
+      error: (error: any) => {
         console.error('Login failed', error);
       }
     });
