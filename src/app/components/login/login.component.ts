@@ -1,10 +1,14 @@
 // src/app/components/login/login.component.ts
 
 import { Component } from '@angular/core';
-import { AuthService } from '../../services/auth.service';  // ✅ Use relative import
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms'; // ✅ Required for ngModel
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-login',
+  standalone: true, // ✅ Required for standalone component
+  imports: [CommonModule, FormsModule], // ✅ Import FormsModule here
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
@@ -21,7 +25,7 @@ export class LoginComponent {
     this.authService.login(this.loginData).subscribe({
       next: (response: any) => {
         console.log('Login successful', response);
-        // Redirect or store token
+        // You can store token or navigate here
       },
       error: (error: any) => {
         console.error('Login failed', error);
