@@ -4,13 +4,13 @@ WORKDIR /app
 COPY package*.json ./
 RUN npm install
 COPY . .
-RUN npm run build --configuration production
+RUN npx ng build --configuration production
 
 # Step 2: Serve with NGINX
 FROM nginx:alpine
 COPY --from=builder /app/dist/valuenest-frontend /usr/share/nginx/html
 
-# Optional: custom nginx config for Angular routing
+# Optional: Add custom nginx.conf to handle Angular routes
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 
 EXPOSE 80
