@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'  // ✅ Make sure this is here
+  providedIn: 'root'  // ✅ This makes it injectable
 })
 export class AuthService {
   constructor(private http: HttpClient) {}
