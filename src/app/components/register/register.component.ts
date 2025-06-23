@@ -6,7 +6,7 @@ import { AuthService } from '../../services/auth.service';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']  // ✅ Note: use plural styleUrls
+  styleUrls: ['./register.component.css']
 })
 export class RegisterComponent {
 
@@ -21,11 +21,11 @@ export class RegisterComponent {
 
   onRegister() {
     this.authService.register(this.registerData).subscribe({
-      next: (response) => {
+      next: (response: any) => {
         console.log('Registration successful', response);
         // You can show success message or redirect to login
       },
-      error: (error) => {
+      error: (error: any) => {
         console.error('Registration failed', error);
       }
     });
