@@ -1,23 +1,20 @@
 // src/app/services/auth.service.ts
 
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-const API_URL = 'http://13.127.72.112:8282/api/auth';
-
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root'  // ✅ Make sure this is here
 })
 export class AuthService {
-
   constructor(private http: HttpClient) {}
 
   register(data: any): Observable<any> {
-    return this.http.post(`${API_URL}/register`, data);
+    return this.http.post('http://13.127.72.112:8282/api/auth/register', data);
   }
 
   login(data: any): Observable<any> {
-    return this.http.post(`${API_URL}/login`, data);
+    return this.http.post('http://13.127.72.112:8282/api/auth/login', data);
   }
 }
